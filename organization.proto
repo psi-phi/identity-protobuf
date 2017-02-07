@@ -1,9 +1,10 @@
 // Version = 1.0
 syntax = "proto3";
 
-package identity.organization;
-option go_package = "identity_organization";
-option java_package = "com.psiphiglobal.identity.organization.model";
+package identity.proto;
+
+option java_package = "com.psiphiglobal.identity.proto";
+option java_outer_classname = "Organization";
 
 import "common.proto";
 
@@ -19,8 +20,9 @@ message SignedCertificate {
 }
 
 enum AutoValidationMechanism {
-    NONE = 0;
-    DNS = 1;
+    UNKNOWN = 0;
+    NONE = 1;
+    DNS = 2;
 }
 
 message CertificateData {
