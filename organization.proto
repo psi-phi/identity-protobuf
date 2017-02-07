@@ -5,15 +5,20 @@ package identity.organization;
 option go_package = "identity_organization";
 option java_package = "com.psiphiglobal.identity.organization.model";
 
-message Organization {
-    SignedCertificate active_cert = 1;
-    repeated SignedCertificate old_certs = 2;
-}
-
 message SignedCertificate {
     string id = 1;
-    CertificateData data = 2;
-    Signature signature = 3;
+    bool status = 2;
+    uint64 created_at = 3;
+    uint64 expired_at = 4;
+    AutoValidationMechanism auto_validation = 5;
+    CertificateData data = 6;
+    Signature self_sign = 7;
+    repeated Signature validations = 8;
+}
+
+enum AutoValidationMechanism {
+    NONE = 0;
+    DNS = 1;
 }
 
 message CertificateData {
@@ -24,15 +29,28 @@ message CertificateData {
 
 message OrganizationDetails {
     string name = 1;
-    string country = 2;
+    string email = 2;
+    string country = 3;
 }
 
 message PublicKey {
-    string algorithm = 1;
+    PublicKeyAlgorithm algorithm = 1;
     bytes data = 2;
 }
 
+enum PublicKeyAlgorithm {
+    RSA = 0;
+    ECDSA = 1;
+}
+
 message Signature {
-    string signature_algorithm = 1;
-    bytes data = 2;
+    string signer_cert_id = 1;
+    SignatureAlgorithm algorithm = 2;
+    bytes data = 3;
+    uint64 timestamp = 4;
+}
+
+enum SignatureAlgorithm {
+    SHA256_RSA = 0;
+    SHA256_ECDSA = 1;
 }
