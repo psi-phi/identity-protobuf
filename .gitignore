@@ -1,2 +1,5 @@
+# Ignore Generated Code
+*.java
+
 # OS Specific Files
 .DS_Store
