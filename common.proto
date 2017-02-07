@@ -1,0 +1,28 @@
+// Version = 1.0
+syntax = "proto3";
+
+package identity.organization;
+option go_package = "identity_organization";
+option java_package = "com.psiphiglobal.identity.organization.model";
+
+message PublicKey {
+    PublicKeyAlgorithm algorithm = 1;
+    bytes data = 2;
+}
+
+enum PublicKeyAlgorithm {
+    RSA = 0;
+    ECDSA = 1;
+}
+
+message Signature {
+    string signer_cert_id = 1;
+    SignatureAlgorithm algorithm = 2;
+    bytes data = 3;
+    uint64 timestamp = 4;
+}
+
+enum SignatureAlgorithm {
+    SHA256_RSA = 0;
+    SHA256_ECDSA = 1;
+}
