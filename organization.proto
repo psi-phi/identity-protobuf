@@ -1,0 +1,38 @@
+// Version = 1.0
+syntax = "proto3";
+
+package identity.organization;
+option go_package = "identity_organization";
+option java_package = "com.psiphiglobal.identity.organization.model";
+
+message Organization {
+    SignedCertificate active_cert = 1;
+    repeated SignedCertificate old_certs = 2;
+}
+
+message SignedCertificate {
+    string id = 1;
+    CertificateData data = 2;
+    Signature signature = 3;
+}
+
+message CertificateData {
+    string domain_name = 1;
+    OrganizationDetails org_details = 2;
+    PublicKey public_key = 3;
+}
+
+message OrganizationDetails {
+    string name = 1;
+    string country = 2;
+}
+
+message PublicKey {
+    string algorithm = 1;
+    bytes data = 2;
+}
+
+message Signature {
+    string signature_algorithm = 1;
+    bytes data = 2;
+}
