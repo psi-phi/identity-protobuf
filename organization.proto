@@ -10,13 +10,19 @@ import "common.proto";
 
 message SignedCertificate {
     string id = 1;
-    bool status = 2;
+    CertificateStatus status = 2;
     uint64 created_at = 3;
     uint64 expired_at = 4;
     AutoValidationMechanism auto_validation = 5;
     CertificateData data = 6;
     Signature self_sign = 7;
     repeated Signature validations = 8;
+}
+
+enum CertificateStatus {
+    ACTIVE = 0;
+    EXPIRED = 1;
+    BLOCKED = 2;
 }
 
 enum AutoValidationMechanism {
