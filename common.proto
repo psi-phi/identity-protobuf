@@ -6,7 +6,7 @@ package identity.proto;
 option java_package = "com.psiphiglobal.identity.proto";
 option java_outer_classname = "Common";
 
-option go_package = "identity.proto";
+option go_package = "identity";
 
 message PublicKey {
     Algorithm algorithm = 1;
