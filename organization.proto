@@ -6,6 +6,8 @@ package identity.proto;
 option java_package = "com.psiphiglobal.identity.proto";
 option java_outer_classname = "Organization";
 
+option go_package = "identity.proto";
+
 import "common.proto";
 
 message SignedCertificate {
