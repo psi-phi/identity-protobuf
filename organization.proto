@@ -54,12 +54,7 @@ message OrganizationDetails {
     string country = 3;
 }
 
-message Role {
-    RoleType type = 1;
-    string parent_org = 2;
-}
-
-enum RoleType {
+enum Role {
     CUSTOMER = 0;
     TEAM_LEAD = 1;
     KYC_ANALYST = 2;
