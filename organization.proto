@@ -56,9 +56,10 @@ message OrganizationDetails {
 
 enum Role {
     CUSTOMER = 0;
-    TEAM_LEAD = 1;
-    KYC_ANALYST = 2;
-    COMPLIANCE_OFFICER = 3;
-    AUDITOR = 4;
-    REQUESTING_BANK = 5;
+    ADMIN = 1;
+    TEAM_LEAD = 2;
+    KYC_ANALYST = 3;
+    COMPLIANCE_OFFICER = 4;
+    AUDITOR = 5;
+    REQUESTING_BANK = 6;
 }
