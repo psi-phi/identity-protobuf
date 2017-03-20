@@ -45,10 +45,25 @@ message CertificateData {
     string domain_name = 1;
     OrganizationDetails org_details = 2;
     PublicKey public_key = 3;
+    Role role = 4;
 }
 
 message OrganizationDetails {
     string name = 1;
     string email = 2;
     string country = 3;
+}
+
+message Role {
+    RoleType type = 1;
+    string parent_org = 2;
+}
+
+enum RoleType {
+    CUSTOMER = 0;
+    TEAM_LEAD = 1;
+    KYC_ANALYST = 2;
+    COMPLIANCE_OFFICER = 3;
+    AUDITOR = 4;
+    REQUESTING_BANK = 5;
 }

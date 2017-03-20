@@ -1,5 +1,6 @@
 # Ignore Generated Code
 *.java
+*.pb.go
 
 # OS Specific Files
 .DS_Store
